@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+message UserData {
+    string name = 1;
+    int32 id = 2;
+    int32 count_trees = 3;
+}
+
+message Message {
+    string data = 1;
+}
+
+message ID {
+    int32 data = 1;
+}
+
+service User {
+    rpc Register(UserData) returns (ID) {}
+    rpc Plant(ID) returns (Message) {}
+    rpc CutDown(ID) returns (Message) {}
+}
